@@ -1,0 +1,9 @@
+# Distribution files
+dist/
+
+# Node packages
+node_modules
+
+# VS Code configuration
+.vscode
+
