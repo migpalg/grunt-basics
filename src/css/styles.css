@@ -1,0 +1,127 @@
+/* General styles */
+
+body {
+  margin: 0;
+  background-color: #F9F9F9;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+/* App layout styles */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 0 1rem;
+}
+
+
+/* Navbar styles */
+
+.navbar {
+  background: linear-gradient(-90deg,#2453aa, #3d81ff);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar > .navbar-brand > * {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+.appbar {
+  position: relative;
+  z-index: 4;
+}
+
+/* Ham menu */
+
+.ham-menu-container {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.ham-menu,
+.ham-menu::after,
+.ham-menu::before {
+  content: '';
+  display: block;
+  background-color: white;
+  height: 5px;
+  width: 30px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.ham-menu::after,
+.ham-menu::before {
+  position: absolute;
+}
+
+.ham-menu::after {
+  top: -10px;
+}
+
+.ham-menu::before {
+  bottom: -10px;
+}
+
+.navigation {
+  background-color: #1e1e1e;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  transform: translateY(-100%);
+  border-radius: 0 0 10px 10px;
+  z-index: -1;
+}
+
+.navigation.open {
+  transform: translateY(0);
+}
+
+.navigation > ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.navigation > ul > li {
+  display: block;
+  border-bottom: 2px dashed #333;
+}
+
+.navigation > ul > li:last-child {
+  border-bottom: none;
+}
+
+.navigation > ul > li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 3px;
+  padding: 1em 1.5em;
+  width: 100%;
+  text-align: center;
+  transition: background-color .3s ease;
+}
+
+.navigation > ul > li a:hover {
+  background-color: #FFFFFF11;
+}
