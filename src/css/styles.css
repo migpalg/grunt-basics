@@ -51,50 +51,6 @@ html {
   z-index: 4;
 }
 
-/* Ham menu */
-
-.ham-menu-container {
-  padding: 10px 0;
-  cursor: pointer;
-}
-
-.ham-menu,
-.ham-menu::after,
-.ham-menu::before {
-  content: '';
-  display: block;
-  background-color: white;
-  height: 5px;
-  width: 30px;
-  border-radius: 5px;
-  position: relative;
-  transition: transform .2s ease;
-}
-
-.ham-menu::after,
-.ham-menu::before {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
-.ham-menu::after {
-  transform: translateY(10px);
-}
-
-.ham-menu::before {
-  transform: translateY(-10px);
-}
-
-.ham-menu-container.active .ham-menu {
-  transform: rotate(45deg);
-}
-
-.ham-menu-container.active .ham-menu::after,
-.ham-menu-container.active .ham-menu::before {
-  transform: translateY(0) rotate(90deg);
-}
-
 .navigation {
   background-color: #1e1e1e;
   position: absolute;
@@ -138,4 +94,48 @@ html {
 
 .navigation > ul > li a:hover {
   background-color: #FFFFFF11;
+}
+
+/* Ham menu */
+
+.ham-menu-container {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.ham-menu,
+.ham-menu::after,
+.ham-menu::before {
+  content: '';
+  display: block;
+  background-color: white;
+  height: 5px;
+  width: 30px;
+  border-radius: 5px;
+  position: relative;
+  transition: transform .2s ease;
+}
+
+.ham-menu::after,
+.ham-menu::before {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.ham-menu::after {
+  transform: translateY(10px);
+}
+
+.ham-menu::before {
+  transform: translateY(-10px);
+}
+
+.ham-menu-container.active .ham-menu {
+  transform: rotate(45deg);
+}
+
+.ham-menu-container.active .ham-menu::after,
+.ham-menu-container.active .ham-menu::before {
+  transform: translateY(0) rotate(90deg);
 }
