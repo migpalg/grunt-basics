@@ -1,6 +1,6 @@
 {
   "name": "game",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A simple game",
   "main": "index.js",
   "scripts": {
