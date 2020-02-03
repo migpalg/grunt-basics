@@ -37,6 +37,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 10px #1e1e1e66;
 }
 
 .navbar > .navbar-brand > * {
@@ -67,19 +68,31 @@ html {
   width: 30px;
   border-radius: 5px;
   position: relative;
+  transition: transform .2s ease;
 }
 
 .ham-menu::after,
 .ham-menu::before {
+  top: 0;
+  left: 0;
   position: absolute;
 }
 
 .ham-menu::after {
-  top: -10px;
+  transform: translateY(10px);
 }
 
 .ham-menu::before {
-  bottom: -10px;
+  transform: translateY(-10px);
+}
+
+.ham-menu-container.active .ham-menu {
+  transform: rotate(45deg);
+}
+
+.ham-menu-container.active .ham-menu::after,
+.ham-menu-container.active .ham-menu::before {
+  transform: translateY(0) rotate(90deg);
 }
 
 .navigation {
@@ -117,7 +130,7 @@ html {
   text-decoration: none;
   color: white;
   letter-spacing: 3px;
-  padding: 1em 1.5em;
+  padding: 1.5em 2em;
   width: 100%;
   text-align: center;
   transition: background-color .3s ease;
