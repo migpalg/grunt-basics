@@ -54,7 +54,8 @@ html {
 .navigation {
   background-color: #1e1e1e;
   position: absolute;
-  width: 100%;
+  left: 40px;
+  right: 40px;
   top: 100%;
   transform: translateY(-100%);
   border-radius: 0 0 10px 10px;
