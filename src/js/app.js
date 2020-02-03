@@ -6,20 +6,6 @@
 })()
 
 function main() {
-  // Elements in DOM
-  var toggleMenuButton = document.getElementById('menuToggler');
-  var navigationElement = document.getElementById('navigation');
-
-  // Toggle the navigation in the page
-  function toggleNavigation() {
-    navigationElement.classList.toggle('open');
-    toggleMenuButton.classList.toggle('active');
-  }
-
-  // Add event listeners
-  toggleMenuButton.onclick = toggleNavigation;
-  navigationElement.onclick = toggleNavigation;
-
   // Initial state of the app
   var initialState = {
     playerIntents: 0,
@@ -39,5 +25,41 @@ function main() {
         return state;
     }
   }
+
+  function createStore(reducer) {
+    var subscriptions = [];
+    var state = reducer(null, {});
+
+    function store() {}
+
+    store.prototype.subscribe = function(listener) {
+      subscriptions.push(listener);
+    }
+
+    store.prototype.dispatch = function(action) {
+      state = reducer(state, action);
+      subscriptions.forEach(subscription => subscription(state));
+    }
+
+    return new store();
+  }
+
+  var store = createStore(reducer);
+
+  // Elements in DOM
+  var toggleMenuButton = document.getElementById('menuToggler');
+  var navigationElement = document.getElementById('navigation');
+
+  // Toggle the navigation in the page
+  function toggleNavigation() {
+    navigationElement.classList.toggle('open');
+    toggleMenuButton.classList.toggle('active');
+    store.dispatch({ type: 'TOGGLE_NAVIGATION' });
+  }
+
+  // Add event listeners
+  toggleMenuButton.onclick = toggleNavigation;
+  navigationElement.onclick = toggleNavigation;
+
 }
 
