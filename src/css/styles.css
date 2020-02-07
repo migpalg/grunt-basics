@@ -140,3 +140,38 @@ html {
 .ham-menu-container.active .ham-menu::before {
   transform: translateY(0) rotate(90deg);
 }
+
+/* Counter styles */
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.counter-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.counter-value {
+  margin: 40px 0;
+}
+
+.btn {
+  padding: 6px 20px;
+  border: none;
+  font-size: 1.05rem;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.btn:active {
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: cornflowerblue;
+}

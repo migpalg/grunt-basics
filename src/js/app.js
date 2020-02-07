@@ -6,6 +6,12 @@
 })()
 
 function main() {
+  // Elements in DOM
+  var toggleMenuButton = document.getElementById('menuToggler');
+  var navigationElement = document.getElementById('navigation');
+  var counterButton = document.getElementById('counterButton');
+  var counterValuer = document.getElementById('counterValue');
+
   // Initial state of the app
   var initialState = {
     playerTries: 0,
@@ -36,18 +42,18 @@ function main() {
     var subscriptions = [];
     var state = reducer(null, {});
 
-    function store() {}
+    function Store() {}
 
-    store.prototype.subscribe = function(listener) {
+    Store.prototype.subscribe = function(listener) {
       subscriptions.push(listener);
     }
 
-    store.prototype.dispatch = function(action) {
+    Store.prototype.dispatch = function(action) {
       state = reducer(state, action);
       subscriptions.forEach(function(subscription) { subscription(state); });
     }
 
-    return new store();
+    return new Store();
   }
 
   var store = createStore(reducer);
@@ -61,20 +67,23 @@ function main() {
       navigationElement.classList.remove('open');
       toggleMenuButton.classList.remove('active');
     }
-  });
 
-  // Elements in DOM
-  var toggleMenuButton = document.getElementById('menuToggler');
-  var navigationElement = document.getElementById('navigation');
+    counterValuer.innerText = state.playerTries;
+  });
 
   // Toggle the navigation in the page
   function toggleNavigation() {
     store.dispatch({ type: 'TOGGLE_NAVIGATION' });
   }
 
+  function incrementCount() {
+    store.dispatch({ type: 'ADD_TRY' });
+  }
+
   // Add event listeners
   toggleMenuButton.onclick = toggleNavigation;
   navigationElement.onclick = toggleNavigation;
+  counterButton.onclick = incrementCount;
 
 }
 
