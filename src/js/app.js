@@ -5,7 +5,7 @@
     var toggleMenuButton = document.getElementById('menuToggler');
     var navigationElement = document.getElementById('navigation');
     var counterButton = document.getElementById('counterButton');
-    var counterValuer = document.getElementById('counterValue');
+    var counterValue = document.getElementById('counterValue');
 
     // Initial state of the app
     var initialState = {
@@ -63,7 +63,7 @@
         toggleMenuButton.classList.remove('active');
       }
 
-      counterValuer.innerText = state.playerTries;
+      if (counterValue) counterValue.innerText = state.playerTries;
     });
 
     // Toggle the navigation in the page
@@ -76,14 +76,9 @@
     }
 
     // Add event listeners
-    toggleMenuButton.onclick = toggleNavigation;
-    navigationElement.onclick = toggleNavigation;
-    counterButton.onclick = incrementCount;
+    
+    if(toggleMenuButton)  toggleMenuButton.onclick  = toggleNavigation;
+    if(navigationElement) navigationElement.onclick = toggleNavigation;
+    if(counterButton)     counterButton.onclick     = incrementCount;
   });
 })()
-
-function main() {
-  
-
-}
-
