@@ -1,7 +1,7 @@
 // Prevents null selections of DOM elements
 (function() {
   document.addEventListener('DOMContentLoaded', main);
-})()
+})();
 
 function main() {
   // Elements in DOM
@@ -19,7 +19,7 @@ function main() {
   // Reducer of actions
   function reducer(state, action) {
     if(!state) state = initialState;
-  
+
     switch (action.type) {
       case 'TOGGLE_NAVIGATION':
         return Object.assign(state, {
@@ -44,12 +44,12 @@ function main() {
 
     Store.prototype.subscribe = function(listener) {
       subscriptions.push(listener);
-    }
+    };
 
     Store.prototype.dispatch = function(action) {
       state = reducer(state, action);
       subscriptions.forEach(function(subscription) { subscription(state); });
-    }
+    };
 
     return new Store();
   }
@@ -79,7 +79,6 @@ function main() {
   }
 
   // Add event listeners
-  
   if(toggleMenuButton)  toggleMenuButton.onclick  = toggleNavigation;
   if(navigationElement) navigationElement.onclick = toggleNavigation;
   if(counterButton)     counterButton.onclick     = incrementCount;

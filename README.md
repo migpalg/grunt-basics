@@ -1,16 +1,18 @@
 # Grunt Basics 🐗🤖
 
-Learning about basic tasks on Grunt
+Tasks básicos en GRUNT.
 
-To make a build run the following command:
+Para crear un build ejecute el siguiente comando:
 
 ```
 npm run build
 ```
 
-And then a `dist/` folder will appear.
+Se creará una carpeta llamada `dist/` donde estará los archivos: `app.min.js` y `styles.min.css`, y el `index.html`.
 
-## Configured tasks
-* **Uglify:** Optimize JS file size
-* **css-min:** Minify CSS
-* **replace:** To update imports
+Se separan las carpetas de desarrollo y producción, en `src/` están todos los archivos para usar en desarrollo, y el `dist/` está todo el código minificado, un archivos de JS, uno de CSS y se mantiene la estructura de folders intacta.
+
+## Tasks configuradas
+* **Uglify:** Optimiza el JS
+* **css-min:** Minifica el CSS
+* **replace:** Reemplaza los imports por `*.min.*`
