@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "npm run build && serve dist/",
     "build": "grunt",
-    "dev": "serve src/"
+    "dev": "serve src/",
+    "start": "serve ./dist"
   },
   "author": "Miguel Palacio <migpalg@gmail.com>",
   "license": "MIT",
